@@ -31,12 +31,15 @@ function robotInventory(log) {
         } else if (transType === 'upgrade') {
             const robotName = arr[1];
             const count = parseInt(arr[2]);
-            const oldPrices = arr[3].map(price=>)
-            const newPrices = arr[4]
-            
+            const oldPrices = parseInt(arr[3]);
+            const newPrices =  parseInt(arr[4]);
+
+            for (let i = 0; i < count; i++) {
+                const oldPriceInd = inventory[robotName].indexOf(oldPrices);
+                inventory[robotName][oldPriceInd] = newPrices            
+            }
         }
     })
-
     return revenue
 }
 
