@@ -76,9 +76,9 @@ function minDiff(nums, sep) {
 
     for (let i = 0; i < nums.length; i++) {
         for (let j = i + sep; j < nums.length; j++) {
-                final.push(Math.abs(nums[i]-nums[j]))
-            }
+                final.push(Math.abs(nums[i]-nums[j]));
         }
+    }
     min = Math.min(...final);       
     return min;
 }
