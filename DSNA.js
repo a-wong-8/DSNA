@@ -86,11 +86,31 @@ function minDiff(nums, sep) { // from roblox coding challenge q2
 // console.log(minDiff([1,5,4,10,9], 3)); // 4
 // console.log(minDiff([3,10,5,8], 1)); // 2
 
-var isPalindrome = function(x) {
+var isPalindrome = function(x) { // easy q from leetcode 
     a = x.toString().split('');
     if (parseInt(a.reverse().join('')) === x) return true 
     return false;
 };
 
-console.log(isPalindrome(10)); // false 
-console.log(isPalindrome(121)); // true 
+// console.log(isPalindrome(10)); // false 
+// console.log(isPalindrome(121)); // true 
+
+function validParenthesis(str) { // easy stack q 
+    stack = [];
+    closeToOpen = {']': '[', '}': '{', ')': '('};
+
+    for (let char of str) {
+        const isBracket = (char in closeToOpen);
+        if (!isBracket) {stack.push(char); continue;}
+
+        const isEqual = (stack[stack.length-1] === closeToOpen[char]);
+        if (isEqual) {stack.pop(); continue;}
+
+        return false;
+    }
+    return (stack.length === 0);
+}
+
+console.log(validParenthesis('[]{}()')); // true 
+console.log(validParenthesis('[{()}]')); // true 
+console.log(validParenthesis('[(])')); // false
