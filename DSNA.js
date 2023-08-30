@@ -100,10 +100,10 @@ function validParenthesis(str) { // easy stack q
     closeToOpen = {']': '[', '}': '{', ')': '('};
 
     for (let char of str) {
-        const isBracket = (char in closeToOpen);
-        if (!isBracket) {stack.push(char); continue;}
+        const isBracket = (char in closeToOpen); // true if key is in hash 
+        if (!isBracket) {stack.push(char); continue;} // if no key then push char 
 
-        const isEqual = (stack[stack.length-1] === closeToOpen[char]);
+        const isEqual = (stack[stack.length-1] === closeToOpen[char]); // checks if last item in stack is 
         if (isEqual) {stack.pop(); continue;}
 
         return false;
@@ -111,6 +111,6 @@ function validParenthesis(str) { // easy stack q
     return (stack.length === 0);
 }
 
-console.log(validParenthesis('[]{}()')); // true 
-console.log(validParenthesis('[{()}]')); // true 
-console.log(validParenthesis('[(])')); // false
+// console.log(validParenthesis('[]{}()')); // true 
+// console.log(validParenthesis('[{()}]')); // true 
+// console.log(validParenthesis('[(])')); // false
