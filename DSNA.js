@@ -138,7 +138,8 @@ var searchRange = function(nums, target) {
             } else if (target < nums[mid]) {
                 right = mid - 1
             } else {
-                // target === mid
+                // target === mid 
+                
             }
         }
     }
@@ -146,5 +147,5 @@ var searchRange = function(nums, target) {
 };
 
 console.log(searchRange([5,7,7,8,8,10], 8)); // [3,4]
-console.log(searchRange([5,7,7,8,8,10]), 6); // [-1,-1]
-console.log(searchRange([]), 0); // [-1,-1] -------------------------------------
+console.log(searchRange([5,7,7,8,8,10], 6)); // [-1,-1]
+console.log(searchRange([], 0)); // [-1,-1] -------------------------------------
