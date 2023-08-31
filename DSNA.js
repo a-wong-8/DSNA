@@ -53,7 +53,7 @@ logs = [
     ['sell', 'robot2', '1']
 ]
 
-// console.log(robotInventory(logs)) // [100, 60, 60, 100]
+// console.log(robotInventory(logs)) // [100, 60, 60, 100] -------------------------
 
 function matrixRotate(matrix) { // cisco coding challenge q1
     row = matrix.length;
@@ -69,7 +69,7 @@ function matrixRotate(matrix) { // cisco coding challenge q1
 }
 
 // console.log(matrixRotate([[1,2,3],[4,5,6],[7,8,9]])); // [7,4,1] [8,5,2] [9,6,3]
-// console.log(matrixRotate([[6,4,1,3],[4,8,7,5],[1,12,9,6],[2,4,1,2]])); // [2,1,4,6] [4,12,8,4] [1,9,7,1] [2,6,5,3]
+// console.log(matrixRotate([[6,4,1,3],[4,8,7,5],[1,12,9,6],[2,4,1,2]])); // [2,1,4,6] [4,12,8,4] [1,9,7,1] [2,6,5,3] -----------------------------------------
 
 function minDiff(nums, sep) { // from roblox coding challenge q2
     final = [];
@@ -83,7 +83,7 @@ function minDiff(nums, sep) { // from roblox coding challenge q2
     return min;
 }
 
-// console.log(minDiff([1,5,4,10,9], 3)); // 4
+// console.log(minDiff([1,5,4,10,9], 3)); // 4 -------------------------------------
 // console.log(minDiff([3,10,5,8], 1)); // 2
 
 var isPalindrome = function(x) { // easy q from leetcode 
@@ -93,7 +93,7 @@ var isPalindrome = function(x) { // easy q from leetcode
 };
 
 // console.log(isPalindrome(10)); // false 
-// console.log(isPalindrome(121)); // true 
+// console.log(isPalindrome(121)); // true ------------------------------------------
 
 function validParenthesis(str) { // easy stack q 
     stack = [];
@@ -113,4 +113,38 @@ function validParenthesis(str) { // easy stack q
 
 // console.log(validParenthesis('[]{}()')); // true 
 // console.log(validParenthesis('[{()}]')); // true 
-// console.log(validParenthesis('[(])')); // false
+// console.log(validParenthesis('[(])')); // false ----------------------------------
+
+var searchRange = function(nums, target) {
+    // use b search for log n runtime
+        // use start and end pointers 
+        // if mid > target, end pointer changes to mid - 1
+        // if mid < target, change starter to mid + 1
+    // check if mid === target 
+        // if so check adjacent ind 
+        // store ind in results arr 
+
+    function binSearch(nums, target) {
+
+        let res = [-1,-1];
+        let left = 0;
+        let right = nums.length-1;
+        
+        while (left < right) {
+            let mid = Math.floor((left + right) / 2)
+            
+            if (target > nums[mid]) {
+                left = mid + 1
+            } else if (target < nums[mid]) {
+                right = mid - 1
+            } else {
+                // target === mid
+            }
+        }
+    }
+        
+};
+
+console.log(searchRange([5,7,7,8,8,10], 8)); // [3,4]
+console.log(searchRange([5,7,7,8,8,10]), 6); // [-1,-1]
+console.log(searchRange([]), 0); // [-1,-1] -------------------------------------
