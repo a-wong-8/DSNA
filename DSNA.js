@@ -158,9 +158,19 @@ var searchRange = function(nums, target) {
 
 
 function addTwoNum(l1, l2) {
+    list1 = parseInt(l1.join(''));
+    list2 = parseInt(l2.join(''));
 
+    let final = list1 + list2 
+    let ans = []
+    // for (let num of final) {
+    //     ans.push(num)
+    // }
+
+    return final
 }
 
-console.log(addTwoNum([2,4,3], [5,6,4])); // [7,0,8]
-console.log(addTwoNum([0], [0])); // [0]
-console.log(addTwoNum([9,9,9,9,9,9,9], [9,9,9,9])); // [8,9,9,9,0,0,0,1] -------------------------
+// console.log(addTwoNum([2,4,3], [5,6,4])); // [7,0,8]
+// console.log(addTwoNum([0], [0])); // [0]
+// console.log(addTwoNum([9,9,9,9,9,9,9], [9,9,9,9])); // [8,9,9,9,0,0,0,1] -------------------------
+
