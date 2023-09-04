@@ -124,8 +124,8 @@ var searchRange = function(nums, target) {
         // if so check adjacent ind 
         // store ind in results arr 
 
-    function binSearch(nums, target) {
-
+    function binSearch(start) {
+        // start will be a boolean that determines if we are looking for the starting point or ending point 
         let res = [-1,-1];
         let left = 0;
         let right = nums.length-1;
@@ -137,15 +137,30 @@ var searchRange = function(nums, target) {
                 left = mid + 1
             } else if (target < nums[mid]) {
                 right = mid - 1
-            } else {
-                // target === mid 
-                
+            } else { // target === mid -- need to figure out this else 
+                if (start && nums[mid-1]===target) {
+                    right = mid - 1;
+                } else {
+
+                }
             }
         }
     }
+    // rgiht = binsearch(false)
+    // left = binsearch(true)
+    // return [left, right]
         
 };
 
-console.log(searchRange([5,7,7,8,8,10], 8)); // [3,4]
-console.log(searchRange([5,7,7,8,8,10], 6)); // [-1,-1]
-console.log(searchRange([], 0)); // [-1,-1] -------------------------------------
+// console.log(searchRange([5,7,7,8,8,10], 8)); // [3,4]
+// console.log(searchRange([5,7,7,8,8,10], 6)); // [-1,-1]
+// console.log(searchRange([], 0)); // [-1,-1] -------------------------------------
+
+
+function addTwoNum(l1, l2) {
+
+}
+
+console.log(addTwoNum([2,4,3], [5,6,4])); // [7,0,8]
+console.log(addTwoNum([0], [0])); // [0]
+console.log(addTwoNum([9,9,9,9,9,9,9], [9,9,9,9])); // [8,9,9,9,0,0,0,1] -------------------------
