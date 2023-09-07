@@ -111,9 +111,35 @@ function validParenthesis(str) { // easy stack q
     return (stack.length === 0);
 }
 
+function validParenthesis2(s, stack = [])
+{
+    if (s.length % 2 !== 0) return false;
+
+    let brackets = {'(': ')', '[':']', '{':'}' };
+
+    for (let char of s) {
+        if (char in brackets) {
+            stack.push(char);
+        } else {
+            if ((char === ')' && stack[stack.length-1] === '(') ||
+            (char === '}' && stack[stack.length-1] === '{') ||
+            (char === ']' && stack[stack.length-1] === '[')) {
+                stack.pop();
+            } else {
+                return false; 
+            }
+        }
+    }
+    return stack.length === 0;
+}
+
 // console.log(validParenthesis('[]{}()')); // true 
 // console.log(validParenthesis('[{()}]')); // true 
 // console.log(validParenthesis('[(])')); // false ----------------------------------
+
+// console.log(validParenthesis2('[]{}()')); // true 
+// console.log(validParenthesis2('[{()}]')); // true 
+// console.log(validParenthesis2('[(])')); // false ----------------------------------
 
 var searchRange = function(nums, target) {
     // use b search for log n runtime
@@ -174,7 +200,7 @@ function addTwoNum(l1, l2) { // not done
 // console.log(addTwoNum([0], [0])); // [0]
 // console.log(addTwoNum([9,9,9,9,9,9,9], [9,9,9,9])); // [8,9,9,9,0,0,0,1] -------------------------
 
-var bSearchRotated = function(nums, target) {
+var bSearchRotated = function(nums, target) { // not done
     if (nums.length === 0 && nums[0] !== target) return -1;
 
     let mid = Math.floor(nums.length/2);
