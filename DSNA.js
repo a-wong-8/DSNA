@@ -174,7 +174,7 @@ function addTwoNum(l1, l2) {
 // console.log(addTwoNum([0], [0])); // [0]
 // console.log(addTwoNum([9,9,9,9,9,9,9], [9,9,9,9])); // [8,9,9,9,0,0,0,1] -------------------------
 
-var bSearch = function(nums, target) {
+var bSearchRotated = function(nums, target) {
     if (nums.length === 0 && nums[0] !== target) return -1;
 
     let mid = Math.floor(nums.length/2);
@@ -184,14 +184,14 @@ var bSearch = function(nums, target) {
     if (nums[mid] === target) return mid;
 
     if (nums[mid] > target) {
-        return bSearch(left, target)
+        return bSearchRotated(left, target)
     } else if (nums[mid] < target) {
-        let stack = bSearch(right, target)
+        let stack = bSearchRotated(right, target)
         if (stack === -1) return -1
         return stack + mid + 1
     }
 };
 
-console.log(bSearch([4,5,6,7,0,1,2], 0)); // 4
-console.log(bSearch([4,5,6,7,0,1,2], 3)); // -1
-console.log(bSearch([1], 0)); // -1
+// console.log(bSearchRotated([4,5,6,7,0,1,2], 0)); // 4
+// console.log(bSearchRotated([4,5,6,7,0,1,2], 3)); // -1
+// console.log(bSearchRotated([1], 0)); // -1 ---------------------------------------------------------
