@@ -124,7 +124,7 @@ var searchRange = function(nums, target) {
         // if so check adjacent ind 
         // store ind in results arr 
 
-    function binSearch(start) {
+    function binSearch(start) { // not done
         // start will be a boolean that determines if we are looking for the starting point or ending point 
         let res = [-1,-1];
         let left = 0;
@@ -157,7 +157,7 @@ var searchRange = function(nums, target) {
 // console.log(searchRange([], 0)); // [-1,-1] -------------------------------------
 
 
-function addTwoNum(l1, l2) {
+function addTwoNum(l1, l2) { // not done 
     list1 = parseInt(l1.join(''));
     list2 = parseInt(l2.join(''));
 
