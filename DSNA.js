@@ -223,7 +223,30 @@ var bSearchRotated = function(nums, target) { // not done
 // console.log(bSearchRotated([1], 0)); // -1 ---------------------------------------------------------
 
 function evaluateReversePolishNotation(tokens) {
+    let stack = [];
 
+    for (let i = 0; i < tokens.length; i++) {
+         if (tokens[i] == '+') {
+            let sec = stack.pop()
+            let fir = stack.pop()
+            stack.push(sec + fir)
+        } else if (tokens[i] == '-') {
+            let sec = stack.pop()
+            let fir = stack.pop()
+            stack.push(fir - sec)
+        } else if (tokens[i] == '*') {
+            let sec = stack.pop()
+            let fir = stack.pop()
+            stack.push(sec * fir)
+        } else if (tokens[i] == '/') {
+            let sec = stack.pop()
+            let fir = stack.pop()
+            stack.push(Math.trunc(fir/sec))
+        } else {
+            stack.push(Math.trunc(tokens[i]))
+        }
+    }
+    return stack[0]
 }
 
 console.log(evaluateReversePolishNotation(["2","1","+","3","*"])); // 9
