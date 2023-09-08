@@ -221,3 +221,10 @@ var bSearchRotated = function(nums, target) { // not done
 // console.log(bSearchRotated([4,5,6,7,0,1,2], 0)); // 4
 // console.log(bSearchRotated([4,5,6,7,0,1,2], 3)); // -1
 // console.log(bSearchRotated([1], 0)); // -1 ---------------------------------------------------------
+
+function evaluateReversePolishNotation(tokens) {
+
+}
+
+console.log(evaluateReversePolishNotation(["2","1","+","3","*"])); // 9
+console.log(evaluateReversePolishNotation(["4","13","5","/","+"])); // 6
