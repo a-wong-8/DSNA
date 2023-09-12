@@ -249,5 +249,27 @@ function evaluateReversePolishNotation(tokens) {
     return stack[0]
 }
 
-console.log(evaluateReversePolishNotation(["2","1","+","3","*"])); // 9
-console.log(evaluateReversePolishNotation(["4","13","5","/","+"])); // 6
+// console.log(evaluateReversePolishNotation(["2","1","+","3","*"])); // 9
+// console.log(evaluateReversePolishNotation(["4","13","5","/","+"])); // 6
+
+var bSearch = function(nums, target) {
+    if (nums.length === 0) return -1;
+
+    let mid = Math.floor(nums.length/2);
+    let left = nums.slice(0,mid);
+    let right = nums.slice(mid+1);
+    
+    if (nums[mid] === target) return mid;
+
+    if (nums[mid] > target) {
+        return bSearch(left, target)
+    } else if (nums[mid] < target) {
+        let stack = bSearch(right, target)
+        if (stack === -1) return -1
+        return stack + mid + 1
+    }
+
+};
+
+console.log(bSearch([-1,0,3,5,9,12], 9)); // 4
+console.log(bSearch([-1,0,3,5,9,12], 2)); // -1
