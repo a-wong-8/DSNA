@@ -271,5 +271,48 @@ var bSearch = function(nums, target) {
 
 };
 
-console.log(bSearch([-1,0,3,5,9,12], 9)); // 4
-console.log(bSearch([-1,0,3,5,9,12], 2)); // -1
+// console.log(bSearch([-1,0,3,5,9,12], 9)); // 4
+// console.log(bSearch([-1,0,3,5,9,12], 2)); // -1
+
+var searchMatrix = function(matrix, target) {
+    rows = matrix.length; // 3
+    cols = matrix[0].length; // 4
+
+    top = 0; // top pointer = 0
+    bottom = rows - 1; // bottom pointer = 2
+
+    while (top <= bottom) {
+        row = top + Math.floor((bottom-top)/2); // 0 + 1 = 1
+
+        if (target > matrix[row][cols-1]) { // [1][3] checks middle row last item 
+            top = row + 1 // = 2 
+        } else if (target < matrix[row][0]) { // [1][0] checks mid row first item 
+            bottom = row - 1 // = 0
+        } else {
+            break;
+        }
+    }
+    
+    if (top > bottom) return false;
+    
+    row = top + Math.floor((bottom - top) / 2);
+
+    left = 0;
+    right = cols-1;
+
+    while (left <= right) {
+        mid = left + Math.floor((right-left)/2)
+
+        if (target > matrix[row][mid]) {
+            left = mid + 1
+        } else if (target < matrix[row][mid]) {
+            right = mid - 1
+        } else {
+            return true 
+        }
+    }
+    return false 
+};
+
+console.log(searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 3)); // true
+console.log(searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 13)); // false
