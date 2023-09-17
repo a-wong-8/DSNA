@@ -317,3 +317,10 @@ var searchMatrix = function(matrix, target) {
 // console.log(searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 3)); // true
 // console.log(searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 13)); // false
 
+var minEatingSpeed = function(piles, h) {
+    
+};
+
+console.log(minEatingSpeed([3,6,7,11], 8)); // 4
+console.log(minEatingSpeed([30,11,23,4,20], 5)); // 30
+console.log(minEatingSpeed([30,11,23,4,20], 6)); // 23
