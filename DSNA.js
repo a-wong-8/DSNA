@@ -321,6 +321,20 @@ var minEatingSpeed = function(piles, h) {
     
 };
 
-console.log(minEatingSpeed([3,6,7,11], 8)); // 4
-console.log(minEatingSpeed([30,11,23,4,20], 5)); // 30
-console.log(minEatingSpeed([30,11,23,4,20], 6)); // 23
+// console.log(minEatingSpeed([3,6,7,11], 8)); // 4
+// console.log(minEatingSpeed([30,11,23,4,20], 5)); // 30
+// console.log(minEatingSpeed([30,11,23,4,20], 6)); // 23
+
+function lastWord(str) {
+    str = str.split(' ').reverse();
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === '') {
+            str.splice(i,1)
+            i--
+        }
+    }
+    return str[0]
+}
+
+console.log(lastWord('  hello world  '));
+console.log(lastWord('hello world'));
