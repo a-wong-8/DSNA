@@ -336,5 +336,5 @@ function lastWord(str) {
     return str[0]
 }
 
-console.log(lastWord('  hello world  '));
-console.log(lastWord('hello world'));
+// console.log(lastWord('  hello world  '));
+// console.log(lastWord('hello world'));
