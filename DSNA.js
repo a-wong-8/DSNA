@@ -338,3 +338,21 @@ function lastWord(str) {
 
 // console.log(lastWord('  hello world  '));
 // console.log(lastWord('hello world'));
+
+function oneNum(nums) {
+    let obj = {};
+    for (let ele of nums) {
+        if (!obj[ele]) {
+            obj[ele] = 1
+        } else {
+            obj[ele] += 1
+        }
+    }
+
+    for (let ele of nums) {
+        if (obj[ele] === 1) return ele
+    }
+}
+
+// console.log(oneNum([1,2,2])); // 1
+// console.log(oneNum([1,1,2])); // 2
