@@ -250,7 +250,7 @@ function evaluateReversePolishNotation(tokens) {
 }
 
 // console.log(evaluateReversePolishNotation(["2","1","+","3","*"])); // 9
-// console.log(evaluateReversePolishNotation(["4","13","5","/","+"])); // 6
+// console.log(evaluateReversePolishNotation(["4","13","5","/","+"])); // 6 -------------------------------------------
 
 var bSearch = function(nums, target) {
     if (nums.length === 0) return -1;
@@ -272,7 +272,7 @@ var bSearch = function(nums, target) {
 };
 
 // console.log(bSearch([-1,0,3,5,9,12], 9)); // 4
-// console.log(bSearch([-1,0,3,5,9,12], 2)); // -1
+// console.log(bSearch([-1,0,3,5,9,12], 2)); // -1 ------------------------------------------------------------
 
 var searchMatrix = function(matrix, target) {
     rows = matrix.length; // 3
@@ -315,7 +315,7 @@ var searchMatrix = function(matrix, target) {
 };
 
 // console.log(searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 3)); // true
-// console.log(searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 13)); // false
+// console.log(searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 13)); // false --------------------------------
 
 var minEatingSpeed = function(piles, h) {
     
@@ -323,7 +323,7 @@ var minEatingSpeed = function(piles, h) {
 
 // console.log(minEatingSpeed([3,6,7,11], 8)); // 4
 // console.log(minEatingSpeed([30,11,23,4,20], 5)); // 30
-// console.log(minEatingSpeed([30,11,23,4,20], 6)); // 23
+// console.log(minEatingSpeed([30,11,23,4,20], 6)); // 23 ----------------------------------------------------------
 
 function lastWord(str) {
     str = str.split(' ').reverse();
@@ -337,7 +337,7 @@ function lastWord(str) {
 }
 
 // console.log(lastWord('  hello world  '));
-// console.log(lastWord('hello world'));
+// console.log(lastWord('hello world')); -----------------------------------------------------------------
 
 function oneNum(nums) {
     let obj = {};
@@ -355,7 +355,7 @@ function oneNum(nums) {
 }
 
 // console.log(oneNum([1,2,2])); // 1
-// console.log(oneNum([1,1,2])); // 2
+// console.log(oneNum([1,1,2])); // 2 ----------------------------------------------------------------------------------
 
 // Write a recursive function that returns all of the permutations of an array
 // (A permutation is a possible ordering of the elements in an array)
@@ -365,20 +365,27 @@ function oneNum(nums) {
 
 function permutations(array) {
     if (array.length <= 1) return [array];
-  
+
     const result = [];
     const first = array.pop(); // removes last item 
     const prevPerms = permutations(array);
-  
+
     prevPerms.forEach(perm => {
-      for (let i = 0; i <= perm.length; i++) {
+        for (let i = 0; i <= perm.length; i++) {
         let nextPerm = perm.slice(0, i).concat([first]).concat(perm.slice(i)); // slice 0 to right, concat [last item], concat slice off left 
         result.push(nextPerm);
-      }
+        }
     });
-  
+
     return result;
-  }
-  
-  // console.log(permutations([1,2,3])); 
-  // console.log(permutations([1,2]));
+}
+
+// console.log(permutations([1,2,3])); --------------------------------------------------------------------
+// console.log(permutations([1,2]));
+
+function permutationInString(str1, str2) {
+
+}
+
+console.log(permutationInString("ab", "eidbaooo")); // true // Explanation: s2 contains one permutation of s1 ("ba") -------------
+console.log(permutationInString("ab", "eidboaoo")); // false
