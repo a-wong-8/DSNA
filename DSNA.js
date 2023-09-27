@@ -383,9 +383,26 @@ function permutations(array) {
 // console.log(permutations([1,2,3])); --------------------------------------------------------------------
 // console.log(permutations([1,2]));
 
-function permutationInString(str1, str2) {
+function permutationInString(s1, s2) {
+    if (s1.length > s2.length) return false;
 
+    const count = new Array(26).fill(0);
+
+    for (let i = 0; i < s1.length; i++) {
+        count[s1.charCodeAt(i)-97]++;
+        count[s2.charCodeAt(i)-97]--;
+    }
+
+    if (!count.some(a=> a !== 0)) return true 
+
+    for (let i = s1.length; i < s2.length; i++) {
+        count[s2.charCodeAt(i)-97]--;
+        count[s2.charCodeAt(i-s1.length)-97]++;
+        if (!count.some(a=> a !== 0)) return true;
+    }
+
+    return false
 }
 
-console.log(permutationInString("ab", "eidbaooo")); // true // Explanation: s2 contains one permutation of s1 ("ba") -------------
+console.log(permutationInString("ab", "eidbaooo")); // true // Explanation: s2 contains one permutation of s1 ("ba") ------------------------------------
 console.log(permutationInString("ab", "eidboaoo")); // false
