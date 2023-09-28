@@ -385,19 +385,25 @@ function permutations(array) {
 
 function permutationInString(s1, s2) {
     if (s1.length > s2.length) return false;
-
     const count = new Array(26).fill(0);
 
+    let alpha = 'abcdefghijklmnopqrstuvwxyz';
+
     for (let i = 0; i < s1.length; i++) {
-        count[s1.charCodeAt(i)-97]++;
-        count[s2.charCodeAt(i)-97]--;
+        // count[s1.charCodeAt(i)-97]++;
+        // count[s2.charCodeAt(i)-97]--;
+        count[alpha.indexOf(s1[i])+1]++
+        count[alpha.indexOf(s2[i])+1]--
     }
 
-    if (!count.some(a=> a !== 0)) return true 
+    if (!count.some(a=> a !== 0)) return true;
 
     for (let i = s1.length; i < s2.length; i++) {
-        count[s2.charCodeAt(i)-97]--;
-        count[s2.charCodeAt(i-s1.length)-97]++;
+        // count[s2.charCodeAt(i)-97]--;
+        // count[s2.charCodeAt(i-s1.length)-97]++;
+        count[alpha.indexOf(s2[i])+1]--;
+        count[alpha.indexOf(s2[i-s1.length])+1]++; // ????????
+        
         if (!count.some(a=> a !== 0)) return true;
     }
 
