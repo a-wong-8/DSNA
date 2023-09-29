@@ -387,28 +387,32 @@ function permutationInString(s1, s2) {
     if (s1.length > s2.length) return false;
     const count = new Array(26).fill(0);
 
-    let alpha = 'abcdefghijklmnopqrstuvwxyz';
+    let alpha = '-abcdefghijklmnopqrstuvwxyz';
 
     for (let i = 0; i < s1.length; i++) {
         // count[s1.charCodeAt(i)-97]++;
         // count[s2.charCodeAt(i)-97]--;
-        count[alpha.indexOf(s1[i])+1]++
-        count[alpha.indexOf(s2[i])+1]--
+        count[alpha.indexOf(s1[i])]++
+        count[alpha.indexOf(s2[i])]--
+
+        if (count.every(a=> a === 0)) return true;
     }
 
-    if (!count.some(a=> a !== 0)) return true;
-
-    for (let i = s1.length; i < s2.length; i++) {
+    for (let i = s1.length; i < s2.length; i++) { // s2 len is 8
         // count[s2.charCodeAt(i)-97]--;
         // count[s2.charCodeAt(i-s1.length)-97]++;
-        count[alpha.indexOf(s2[i])+1]--;
-        count[alpha.indexOf(s2[i-s1.length])+1]++; // ????????
+        count[alpha.indexOf(s2[i])]--; // 2, 3, 4, 5, ... 8
+        count[alpha.indexOf(s2[i-s1.length])]++; // 2-2=0 / 3-2=1 / 4-2 =2 / 5-2=3 / 6-2=4 / 7-2=5 / 8-2=6
         
-        if (!count.some(a=> a !== 0)) return true;
+        if (count.every(a=> a === 0)) return true;
     }
 
     return false
 }
+// count : a+1 b+1 e-1 i-1, 
+// d-1 b0 a0 o-3
+// e0 i0 d0 b1 a1 o0 -- checks if all 0 every iteration of loop 
 
 console.log(permutationInString("ab", "eidbaooo")); // true // Explanation: s2 contains one permutation of s1 ("ba") ------------------------------------
 console.log(permutationInString("ab", "eidboaoo")); // false
+console.log(permutationInString("ooo", "eidboaoo")); // false
