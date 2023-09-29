@@ -413,6 +413,6 @@ function permutationInString(s1, s2) {
 // d-1 b0 a0 o-3
 // e0 i0 d0 b1 a1 o0 -- checks if all 0 every iteration of loop 
 
-console.log(permutationInString("ab", "eidbaooo")); // true // Explanation: s2 contains one permutation of s1 ("ba") ------------------------------------
-console.log(permutationInString("ab", "eidboaoo")); // false
-console.log(permutationInString("ooo", "eidboaoo")); // false
+// console.log(permutationInString("ab", "eidbaooo")); // true // Explanation: s2 contains one permutation of s1 ("ba") ------------------------------------
+// console.log(permutationInString("ab", "eidboaoo")); // false
+// console.log(permutationInString("ooo", "eidboaoo")); // false
