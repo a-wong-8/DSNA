@@ -413,7 +413,21 @@ function permutationInString(s1, s2) {
 // d-1 b0 a0 o-3
 // e0 i0 d0 b1 a1 o0 -- checks if all 0 every iteration of loop 
 
-console.log(permutationInString("ab", "eidbaooo")); // true // Explanation: s2 contains one permutation of s1 ("ba") ------------------------------------
-console.log(permutationInString("ab", "eidboaoo")); // false
-console.log(permutationInString("ooo", "eidboaoo")); // false
+// console.log(permutationInString("ab", "eidbaooo")); // true // Explanation: s2 contains one permutation of s1 ("ba") ------------------------------------
+// console.log(permutationInString("ab", "eidboaoo")); // false
+// console.log(permutationInString("ooo", "eidboaoo")); // false
 
+// You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
+var canJump = function(nums) {
+    let lastInd = nums.length-1
+
+    for (let i = nums.length; i >=0; i--) {
+        if (i + nums[i] >= lastInd) lastInd = i
+    }
+
+    return lastInd === 0
+};
+
+// console.log(canJump([2,3,1,1,4])); // true
+// // Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+// console.log(canJump([3,2,1,0,4])); // false -----------------------------------------------------------------------------------------------------
