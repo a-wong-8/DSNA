@@ -12,3 +12,20 @@ var kClosest = function(points, k) {
 // // We only want the closest k = 1 points from the origin, so the answer is just [[-2,2]].
 // console.log(kClosest([[3,3],[5,-1],[-2,4]], 2)); // Output: [[3,3],[-2,4]] -------------------------------------------------
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
