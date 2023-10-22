@@ -428,6 +428,5 @@ var canJump = function(nums) {
     return lastInd === 0
 };
 
-// console.log(canJump([2,3,1,1,4])); // true
-// // Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+// console.log(canJump([2,3,1,1,4])); // true - Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
 // console.log(canJump([3,2,1,0,4])); // false -----------------------------------------------------------------------------------------------------
