@@ -352,9 +352,11 @@ function oneNum(nums) {
     for (let ele of nums) {
         if (obj[ele] === 1) return ele
     }
+    return 'none';
 }
 
 // console.log(oneNum([1,2,2])); // 1
+// console.log(oneNum([0,0,0])); // none
 // console.log(oneNum([1,1,2])); // 2 ----------------------------------------------------------------------------------
 
 // Write a recursive function that returns all of the permutations of an array
@@ -413,9 +415,9 @@ function permutationInString(s1, s2) {
 // d-1 b0 a0 o-3
 // e0 i0 d0 b1 a1 o0 -- checks if all 0 every iteration of loop 
 
-// console.log(permutationInString("ab", "eidbaooo")); // true // Explanation: s2 contains one permutation of s1 ("ba") ------------------------------------
 // console.log(permutationInString("ab", "eidboaoo")); // false
 // console.log(permutationInString("ooo", "eidboaoo")); // false
+// console.log(permutationInString("ab", "eidbaooo")); // true // Explanation: s2 contains one permutation of s1 ("ba") ------------------------------------
 
 // You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
 var canJump = function(nums) {
