@@ -68,3 +68,38 @@ var hasCycle = function(head) {
     }
     return false
 }; 
+
+var reorderList = function(head) {
+    let slow = head;
+    let fast = head;
+    while (fast.next && fast.next.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    let prev = null;
+    let current = slow.next;
+    while (current) {
+        let temp = current.next;
+        current.next = prev;
+        prev = current;
+        current = temp;
+    }
+
+    slow.next = null;
+
+    let h1 = head;
+    let h2 = prev;
+
+    while (h2) {
+        let temp = h1.next;
+        h1.next = h2;
+        h1 = h2
+        h2 = temp
+    }
+};
+
+// head: 1 -> 2 -> 3 -> 4 -> 5
+// h1: 1 -> 2 -> 3
+// h2: 5 -> 4
+// head: 1 -> 5 -> 2 -> 4 -> 3
