@@ -70,14 +70,14 @@ var hasCycle = function(head) {
 }; 
 
 var reorderList = function(head) {
-    let slow = head;
+    let slow = head; // finds middle - by moving 'fast' twice, we'll have 'slow' in the middle when fast finishes 
     let fast = head;
     while (fast.next && fast.next.next) {
         slow = slow.next;
         fast = fast.next.next;
     }
 
-    let prev = null;
+    let prev = null; // reverses second half of head using 'slow' 
     let current = slow.next;
     while (current) {
         let temp = current.next;
@@ -88,10 +88,10 @@ var reorderList = function(head) {
 
     slow.next = null;
 
-    let h1 = head;
+    let h1 = head; // combines the two halves 
     let h2 = prev;
 
-    while (h2) {
+    while (h2) { // if even, second half will be smaller 
         let temp = h1.next;
         h1.next = h2;
         h1 = h2
