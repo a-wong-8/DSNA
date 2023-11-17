@@ -7,18 +7,13 @@ function ListNode(val, next) {
 * @return {ListNode}
 */
 var reverseList = function(head) {
-   // set the current 
-   // then const the next 
-   // set the prev 
-   // then swap 
-
-   let current = head;
+   let current = head;// set the current 
    let prev = null;
 
    while (current) {
-       const next = current.next;
-       current.next = prev;
-       prev = current;
+       const next = current.next;// then const the next 
+       current.next = prev;   // set the prev 
+       prev = current;   // then swap 
        current = next;
    } 
    return prev;
@@ -103,3 +98,17 @@ var reorderList = function(head) {
 // h1: 1 -> 2 -> 3
 // h2: 5 -> 4
 // head: 1 -> 5 -> 2 -> 4 -> 3
+
+var removeNthFromEnd = function(head, n) {
+    let fast = head, slow = head; // 2 pointers
+    
+    for (let i = 0; i < n; i++) fast = fast.next; // moves the fast pointer n nodes ahead of slow
+
+    if (!fast) return head.next; // if null then node to be removed is the head 
+
+    while (fast.next) fast = fast.next, slow = slow.next; // moves pointers 1 node until fast end, slow will point removed node 
+
+    slow.next = slow.next.next; // skips the n node 
+
+    return head
+};
