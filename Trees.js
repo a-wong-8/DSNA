@@ -21,4 +21,17 @@ var invertTree = function(root) {
     return root
 };
 
-console.log(invertTree([4,2,7,1,3,6,9])); // [4,7,2,9,6,3,1]
+// console.log(invertTree([4,2,7,1,3,6,9])); // [4,7,2,9,6,3,1]
+
+var maxDepth = function(root) {
+    if (!root) return null;
+    
+    let left = maxDepth(root.left);
+    let right = maxDepth(root.right);
+    // console.log(`left ${left}`)
+
+    return Math.max(left, right) + 1;
+};
+
+// Input: root = [3,9,20,null,null,15,7]
+// Output: 3
