@@ -8,6 +8,18 @@ function TreeNode(val, left, right) {
  * @return {TreeNode}
  */
 
+function arrayToTree(arr, i) {
+    if (i >= arr.length || arr[i] === null) {
+        return null;
+    }
+
+    const root = new TreeNode(arr[i]);
+    root.left = arrayToTree(arr, 2 * i + 1);
+    root.right = arrayToTree(arr, 2 * i + 2);
+
+    return root;
+}
+
 var invertTree = function(root) {
     if (!root) return null;
 
@@ -22,6 +34,10 @@ var invertTree = function(root) {
 };
 
 // console.log(invertTree([4,2,7,1,3,6,9])); // [4,7,2,9,6,3,1]
+const root = arrayToTree([4,2,7,1,3,6,9], 0);
+
+console.log(invertTree(root)); // [4,7,2,9,6,3,1]
+
 
 var maxDepth = function(root) {
     if (!root) return null;
@@ -35,4 +51,3 @@ var maxDepth = function(root) {
 
 // Input: root = [3,9,20,null,null,15,7]
 // Output: 3
-
