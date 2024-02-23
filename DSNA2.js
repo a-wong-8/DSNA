@@ -45,3 +45,32 @@ function bSearchRotatedSortedArr (nums, target) {
 // console.log(bSearchRotatedSortedArr([4,5,6,7,0,1,2], 0)); // Output: 4
 // console.log(bSearchRotatedSortedArr([4,5,6,7,0,1,2], 3)); // Output: -1
 // console.log(bSearchRotatedSortedArr([1], 0)); // Output: -1
+
+// Palindrome Permutation: Given in the check if it is a permutation of a palindrome
+// A palindrome is a word or phrase that is the same forwards and backwards.
+// A permutation is an rearrangement of letters. The palindrome does not need to be limited to just dictionary words.
+// EXAMPLE
+// Input:
+// tact coa
+// Output: True (permutations: "taco cat", "atco cta", etc.)
+
+var permute = function(nums) {
+    nums = nums.split('');
+    if (nums.length <= 1) return [nums];
+
+    let result = [];
+    let first = nums.pop();
+    let prevPerms = permute(nums);
+
+    prevPerms.forEach(perm => {
+        for (let i = 0; i <= perm.length; i++) {
+            // let nextPerm = perm.slice(0, i).concat([first]).concat(perm.slice(i));
+            let nextPerm = [...perm.slice(0, i), first, ...perm.slice(i)];
+
+            result.push(nextPerm);
+        }
+    })
+    return result;
+};
+
+// console.log(permute('oact coa'));
