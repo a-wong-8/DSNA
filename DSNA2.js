@@ -57,15 +57,15 @@ function bSearchRotatedSortedArr (nums, target) {
 
 // Given a string, determine if a permutation of the string could form a palindrome.
 
-var permute = function(nums) {
+var permute = function(str) {
     let obj = {};
-    nums = nums.replace(/\s/g, '');
+    str = str.replace(/\s/g, ''); // removes space from string 
 
-    for (let i =0; i<nums.length; i++) {
-        if (!obj[nums[i]]) {
-            obj[nums[i]] = 1
+    for (let i =0; i<str.length; i++) {
+        if (!obj[str[i]]) {
+            obj[str[i]] = 1
         } else {
-            obj[nums[i]] += 1
+            obj[str[i]] += 1
         }
     }
 
