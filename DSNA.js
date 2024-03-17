@@ -359,22 +359,23 @@ function oneNum(nums) {
 // console.log(oneNum([0,0,0])); // none
 // console.log(oneNum([1,1,2])); // 2 ----------------------------------------------------------------------------------
 
+
 // Write a recursive function that returns all of the permutations of an array
 // (A permutation is a possible ordering of the elements in an array)
 // e.g. permutations([1,2]) => [[1,2], [2,1]]
-// e.g. permutations([1,2,3]) => [[1,2,3], [1,3,2], [2,1,3], 
-//                                [2,3,1], [3,1,2], [3,2,1]]
+// e.g. permutations([1,2,3]) => [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]
 
 function permutations(array) {
     if (array.length <= 1) return [array];
 
     const result = [];
-    const first = array.pop(); // removes last item 
-    const prevPerms = permutations(array);
+    const first = array[0];
+    let rest = array.slice(1);
+    const prevPerms = permutations(rest);
 
     prevPerms.forEach(perm => {
         for (let i = 0; i <= perm.length; i++) {
-        let nextPerm = perm.slice(0, i).concat([first]).concat(perm.slice(i)); // slice 0 to right, concat [last item], concat slice off left 
+        let nextPerm = [...perm.slice(0, i), first, ...perm.slice(i)]; // inserts first at i index  
         result.push(nextPerm);
         }
     });
@@ -382,8 +383,11 @@ function permutations(array) {
     return result;
 }
 
-// console.log(permutations([1,2,3])); --------------------------------------------------------------------
-// console.log(permutations([1,2]));
+console.log(permutations([1,2])); // [[1,2], [2,1]]
+console.log(permutations([1,2,3])); // [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]
+console.log(permutations(['a','b','z']));
+
+// --------------------------------------------------------------------
 
 function permutationInString(s1, s2) {
     if (s1.length > s2.length) return false;

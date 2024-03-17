@@ -45,6 +45,7 @@ function bSearchRotatedSortedArr (nums, target) {
 // console.log(bSearchRotatedSortedArr([4,5,6,7,0,1,2], 0)); // Output: 4
 // console.log(bSearchRotatedSortedArr([4,5,6,7,0,1,2], 3)); // Output: -1
 // console.log(bSearchRotatedSortedArr([1], 0)); // Output: -1
+// -----------------------------------------------------------------------------------
 
 // Palindrome Permutation: Given in the check if it is a permutation of a palindrome
 // A palindrome is a word or phrase that is the same forwards and backwards.
@@ -54,23 +55,30 @@ function bSearchRotatedSortedArr (nums, target) {
 // tact coa
 // Output: True (permutations: "taco cat", "atco cta", etc.)
 
+// Given a string, determine if a permutation of the string could form a palindrome.
+
 var permute = function(nums) {
-    nums = nums.split('');
-    if (nums.length <= 1) return [nums];
+    let obj = {};
+    nums = nums.replace(/\s/g, '');
 
-    let result = [];
-    let first = nums.pop();
-    let prevPerms = permute(nums);
-
-    prevPerms.forEach(perm => {
-        for (let i = 0; i <= perm.length; i++) {
-            // let nextPerm = perm.slice(0, i).concat([first]).concat(perm.slice(i));
-            let nextPerm = [...perm.slice(0, i), first, ...perm.slice(i)];
-
-            result.push(nextPerm);
+    for (let i =0; i<nums.length; i++) {
+        if (!obj[nums[i]]) {
+            obj[nums[i]] = 1
+        } else {
+            obj[nums[i]] += 1
         }
-    })
-    return result;
+    }
+
+    let odds = 0;
+    for (let ele in obj) {
+        if (obj[ele] % 2 !== 0) odds +=1;
+    }
+
+    if (odds > 1) return false;
+    return true;
 };
 
-// console.log(permute('oact coa'));
+console.log(permute('oact cta')); // true
+console.log(permute('code')); // false
+console.log(permute("aab")); // true
+console.log(permute('carerac')); // true
