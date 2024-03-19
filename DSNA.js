@@ -369,23 +369,23 @@ function permutations(array) {
     if (array.length <= 1) return [array];
 
     const result = [];
-    const first = array[0];
+    const firstEle = array[0];
     let rest = array.slice(1);
-    const prevPerms = permutations(rest);
+    const permsWithoutFirst = permutations(rest);
 
-    prevPerms.forEach(perm => {
+    permsWithoutFirst.forEach(perm => {
         for (let i = 0; i <= perm.length; i++) {
-        let nextPerm = [...perm.slice(0, i), first, ...perm.slice(i)]; // inserts first at i index  
-        result.push(nextPerm);
+        let permWithFirst = [...perm.slice(0, i), firstEle, ...perm.slice(i)]; // inserts first at i index  
+        result.push(permWithFirst);
         }
     });
 
     return result;
 }
 
-console.log(permutations([1,2])); // [[1,2], [2,1]]
-console.log(permutations([1,2,3])); // [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]
-console.log(permutations(['a','b','z']));
+// console.log(permutations([1,2])); // [[1,2], [2,1]]
+// console.log(permutations([1,2,3])); // [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]
+// console.log(permutations(['a','b','z']));
 
 // --------------------------------------------------------------------
 

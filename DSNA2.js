@@ -55,7 +55,7 @@ function bSearchRotatedSortedArr (nums, target) {
 // tact coa
 // Output: True (permutations: "taco cat", "atco cta", etc.)
 
-// Given a string, determine if a permutation of the string could form a palindrome.
+// Given a string, determine if a permutation of the string could form a palindrome. <-- better question
 
 var permute = function(str) {
     let obj = {};
@@ -71,7 +71,7 @@ var permute = function(str) {
 
     let odds = 0;
     for (let ele in obj) {
-        if (obj[ele] % 2 !== 0) odds +=1;
+        if (obj[ele] % 2 !== 0) odds +=1; // palidrome can only have one odd letter 
     }
 
     if (odds > 1) return false;
@@ -81,4 +81,4 @@ var permute = function(str) {
 console.log(permute('oact cta')); // true
 console.log(permute('code')); // false
 console.log(permute("aab")); // true
-console.log(permute('carerac')); // true
+console.log(permute('care rac')); // true
